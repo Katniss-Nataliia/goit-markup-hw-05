@@ -19,6 +19,9 @@
     --active-and-hover-color: #2196F3;
     --white-text-color: #FFFFFF;
     --regular-customer-brnads-color:#AFB1B8;
+    --modal-bg:rgba(0, 0, 0, 0.2);
+    --transparent-grey-color: #2F303ACC;
+    --transparent-blue:#2196F3E5;
 
 }
 
@@ -88,13 +91,31 @@ header{
     padding-top: 32px;
     padding-bottom: 32px;
    
+   
 }
+
 .menu-item:hover,
 .menu-item:focus,
 .nav-link-current{
     color: var(--active-and-hover-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
    
 }
+.nav-link-current {
+    position: relative;
+}
+.nav-link-current::after{
+    content: '';
+    width: 78px;
+    height: 4px;
+    background-color: var(--active-and-hover-color);
+    position: absolute;
+    border-radius: 2px;
+    left:0;
+    bottom: 0;
+    
+}
+
 .menu > li:first-child,
 .menu > li:nth-child(2){
     margin-right: 53px;
@@ -121,9 +142,11 @@ header{
     display: flex;
     align-items: center;
 }
+
 .contact-detail:hover,
 .contact-detail:focus{
     color: var(--active-and-hover-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-icon{
     fill: currentColor;
@@ -131,7 +154,11 @@ header{
 }
 .contact-icon:hover{
     fill: var(--active-and-hover-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+
 /* MARK - main styling */
 /* MARK - OUR Skills */
 
@@ -179,7 +206,79 @@ header{
     cursor: pointer;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     background-color: var(--request-our-service-hover-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+
+.backdrop{
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-bg);
+    top:0;
+    left:0;
+    position: fixed;
+    opacity: 1;
+    visibility: visible;
+}
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+}
+.modal-window{
+    background-color: var(--main-heading-color);
+    width: 528px;
+    height: 581px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* animation-name: modal-animation; 
+    animation-duration: 250ms;
+    animation-timing-function: linear; */
+    
+}
+.close-bttn{
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    left: 490px;
+    top: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--main-bg-color);
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+}
+.close-bttn:hover,
+.close-bttn:focus{
+    cursor: pointer;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+@keyframes modal-animation{
+    0%{
+        scale: 0;
+        opacity: 0;
+        transform: translate(30px, 100px);
+    }
+    50%{
+        scale: .5;
+        opacity: .5;
+        transform: translate(500px, 150px);
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+        transform: translate(100px, 200px);
+    }
+}
+
 .button-parent-element{
     display: flex;
     flex-direction: column;
@@ -265,8 +364,24 @@ header{
 }
 .what-we-do-images > li{
     margin-right: 30px;
+    position: relative;
 }
-
+.desktop-apps-container{
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    background-color: var(--transparent-grey-color);
+    bottom: 0;
+}
+.desktop-apps-container > p{
+    color: var(--main-heading-color);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.03em;
+    padding-top: 27px;
+}
 
 /* MARK - Our team section */
 
@@ -339,6 +454,7 @@ header{
 .team-social-icons-link:focus{
     background-color: var(--active-and-hover-color);
     color: var(--main-bg-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -376,6 +492,7 @@ header{
 .regular-customers-icons-link:focus{
     color: var(--active-and-hover-color);
     border: 1px solid var(--active-and-hover-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -422,6 +539,7 @@ header{
 .contact-detail-footer:active,
 .contact-detail-footer:focus{
     color: var(--active-and-hover-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-container-one {
@@ -467,6 +585,7 @@ header{
 .social-icon-link-svg:focus{
     background-color: var(--active-and-hover-color);
     color: var(--address-footer-color);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* MARK -> PORTFOLIO PAGE */
@@ -504,6 +623,7 @@ header{
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
     0px 1px 2px rgba(0, 0, 0, 0.08), 
     0px 2px 2px rgba(0, 0, 0, 0.12);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-projects-title{
@@ -535,6 +655,32 @@ header{
     margin-bottom: 30px;
     
 }
+.overflow-block{
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay{
+    background-color: var(--transparent-blue);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 370px;
+    height: 294px;
+    transform: translateY(100%);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay > p{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+    color: var(--white-text-color);
+    text-align: left;
+    padding: 63px 24px;
+   
+}
 
 .projects > li:nth-child(n+7){
     margin-bottom: 0px;
@@ -554,10 +700,15 @@ header{
     color: var(--description-color);
    
 }
-.projects > li:hover{
+.projects > li:hover {
     cursor: pointer;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
     0px 4px 4px rgba(0, 0, 0, 0.06), 
     1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
 }
 
+.projects>li:hover .overlay{
+    transform: translateY(0);
+}
